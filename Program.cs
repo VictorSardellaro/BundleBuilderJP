@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
+using BundleBuilderJP.Services.ActionsNP6;
 
 namespace BundleBuilderJP
 {
@@ -7,33 +7,37 @@ namespace BundleBuilderJP
     {
         static void Main(string[] args)
         {
-            //tring sourcePath = @"c:\temp\file1.txt";
-            //string targetPath = @"c:\temp\file2.txt";
 
-            // ProcessStartInfo ps = new ProcessStartInfo();
-            // ps.FileName = "cmd.exe";
-            // ps.WindowStyle = ProcessWindowStyle.Normal;
-            // ps.Arguments = @"/k C:\NewPOS61\2.Stop.cmd";
-            // Process.Start(ps);
-
-            Process process = new Process();
-            process.StartInfo.FileName = "cmd.exe";
-            process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.RedirectStandardInput = true;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.UseShellExecute = false;
-            process.Start();
-            process.StandardInput.WriteLine(@"C:\NewPOS61\2.Stop.cmd");
-            process.StandardInput.Flush();
-            process.StandardInput.Close();
-            process.Start();
-            process.StandardInput.WriteLine(@"C:\NewPOS61\3.ClearAll.bat");
-            process.StandardInput.Flush();
-            process.StandardInput.Close();
-            process.WaitForExit();
-            System.Console.WriteLine(process.StandardOutput.ReadToEnd());
+            Load();
             Console.ReadKey();
+        }
 
+        private static void Load()
+        {
+            System.Console.Clear();
+            System.Console.WriteLine("Bundle Builder");
+            System.Console.WriteLine("------------------");
+            System.Console.WriteLine("Chose an option");
+            System.Console.WriteLine();
+            System.Console.WriteLine("1 - Stop NP6");
+            System.Console.WriteLine("2 - Clear NP6");
+            System.Console.WriteLine("3 - Backup Bundle");
+            System.Console.WriteLine();
+            System.Console.WriteLine();
+            var option = short.Parse(Console.ReadLine()!);
+
+            switch (option)
+            {
+                case 1:
+                    ActionsNP6.Clear();
+                    break;
+                case 2:
+                    ActionsNP6.Stop();
+                    break;
+
+                default: Load(); break;
+            }
         }
     }
 }
+
