@@ -39,7 +39,7 @@ namespace BundleBuilderJP
                     ActionsNP6.Backup();
                     break;
                 case 4:
-                    ActionsNP6.Zip();
+                    ActionsNP6.ExtractToDirectory();
                     break;
 
                 default: Load(); break;
