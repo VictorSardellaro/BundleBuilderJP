@@ -2,6 +2,8 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using BundleBuilderJP.Screens;
+
 
 
 
@@ -25,6 +27,8 @@ namespace BundleBuilderJP.Services.ActionsNP6
             process.WaitForExit();
             System.Console.WriteLine(process.StandardOutput.ReadToEnd());
 
+            ReturnMainScreen();
+
         }
 
         public static void Clear()
@@ -42,14 +46,17 @@ namespace BundleBuilderJP.Services.ActionsNP6
             process.WaitForExit();
             System.Console.WriteLine(process.StandardOutput.ReadToEnd());
 
+            ReturnMainScreen();
+
         }
 
         public static void Backup()
         {
             string startPath = @"D:\TEMP\A\Teste";
-            string zipPath = @"D:\TEMP\B\test_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
+            string zipPath = @"D:\TEMP\B\BundleBackup_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
             ZipFile.CreateFromDirectory(startPath, zipPath);
 
+            ReturnMainScreen();
         }
 
         public static void ExtractToDirectory()
@@ -57,6 +64,15 @@ namespace BundleBuilderJP.Services.ActionsNP6
             string extractPath = @"D:\TEMP\C";
             string zipPath = @"D:\TEMP\B\test.zip";
             ZipFile.ExtractToDirectory(zipPath, extractPath);
+
+            ReturnMainScreen();
+        }
+
+        public static void ReturnMainScreen()
+        {
+            Console.ReadKey();
+            BundleBuilderJP.Screens.Screen.MainScreen();
+
         }
 
     }
