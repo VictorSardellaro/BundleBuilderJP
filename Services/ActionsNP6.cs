@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
-using BundleBuilderJP.Screens;
+using BundleBuilderJP.Screens.MenuScreens;
 
 
 
@@ -71,10 +71,8 @@ namespace BundleBuilderJP.Services.ActionsNP6
         public static void ReturnMainScreen()
         {
             Console.ReadKey();
-            BundleBuilderJP.Screens.Screen.MainScreen();
-
+            MenuScreen.MainScreen();
         }
-
     }
 }
 

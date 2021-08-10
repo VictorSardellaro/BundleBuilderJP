@@ -1,4 +1,5 @@
 ﻿using System;
+using BundleBuilderJP.Screens.MenuScreens;
 
 namespace BundleBuilderJP
 {
@@ -7,7 +8,7 @@ namespace BundleBuilderJP
         static void Main(string[] args)
         {
 
-            BundleBuilderJP.Screens.Screen.MainScreen();
+            MenuScreen.MainScreen();
             Console.ReadKey();
         }
 

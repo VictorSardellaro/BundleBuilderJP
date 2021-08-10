@@ -1,9 +1,9 @@
 using System;
 using BundleBuilderJP.Services.ActionsNP6;
 
-namespace BundleBuilderJP.Screens
+namespace BundleBuilderJP.Screens.MenuScreens
 {
-    public class Screen
+    public class MenuScreen
     {
 
         public static void MainScreen()
