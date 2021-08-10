@@ -46,35 +46,19 @@ namespace BundleBuilderJP.Services.ActionsNP6
 
         public static void Backup()
         {
-            string sourcePath = @"c:\temp\file1.txt";
-            string targetPath = @"c:\temp\file2.txt";
-            try
-            {
-                File.Copy(sourcePath, targetPath);
-                string[] lines = File.ReadAllLines(sourcePath);
-                foreach (string line in lines)
-                {
-                    Console.WriteLine(line);
-                }
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine("An error occurred");
-                Console.WriteLine(e.Message);
-            }
-        }
-
-        public static void Zip()
-        {
-
             string startPath = @"D:\TEMP\A\Teste";
-            string zipPath = @"D:\TEMP\B";
-            string extractPath = @"D:\TEMP\C";
-
+            string zipPath = @"D:\TEMP\B\test_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
             ZipFile.CreateFromDirectory(startPath, zipPath);
-            ZipFile.ExtractToDirectory(zipPath, extractPath);
 
         }
+
+        public static void ExtractToDirectory()
+        {
+            string extractPath = @"D:\TEMP\C";
+            string zipPath = @"D:\TEMP\B\test.zip";
+            ZipFile.ExtractToDirectory(zipPath, extractPath);
+        }
+
     }
 }
 
