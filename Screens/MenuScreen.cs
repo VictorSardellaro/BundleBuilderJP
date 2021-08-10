@@ -6,7 +6,7 @@ namespace BundleBuilderJP.Screens.MenuScreens
     public class MenuScreen
     {
 
-        public static void MainScreen()
+        public static void LoadMenu()
         {
             System.Console.Clear();
             System.Console.WriteLine("Bundle Builder Tools");
@@ -20,6 +20,7 @@ namespace BundleBuilderJP.Screens.MenuScreens
             System.Console.WriteLine();
             System.Console.WriteLine();
             var option = short.Parse(Console.ReadLine()!);
+            System.Console.Clear();
 
             switch (option)
             {
@@ -36,7 +37,7 @@ namespace BundleBuilderJP.Screens.MenuScreens
                     ActionsNP6.ExtractToDirectory();
                     break;
 
-                default: MainScreen(); break;
+                default: LoadMenu(); break;
             }
         }
 

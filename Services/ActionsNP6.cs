@@ -27,7 +27,7 @@ namespace BundleBuilderJP.Services.ActionsNP6
             process.WaitForExit();
             System.Console.WriteLine(process.StandardOutput.ReadToEnd());
 
-            ReturnMainScreen();
+            ReturnMenuScreen();
 
         }
 
@@ -46,7 +46,7 @@ namespace BundleBuilderJP.Services.ActionsNP6
             process.WaitForExit();
             System.Console.WriteLine(process.StandardOutput.ReadToEnd());
 
-            ReturnMainScreen();
+            ReturnMenuScreen();
 
         }
 
@@ -56,7 +56,9 @@ namespace BundleBuilderJP.Services.ActionsNP6
             string zipPath = @"D:\TEMP\B\BundleBackup_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
             ZipFile.CreateFromDirectory(startPath, zipPath);
 
-            ReturnMainScreen();
+            System.Console.WriteLine("Backup performed successfully");
+
+            ReturnMenuScreen();
         }
 
         public static void ExtractToDirectory()
@@ -65,13 +67,14 @@ namespace BundleBuilderJP.Services.ActionsNP6
             string zipPath = @"D:\TEMP\B\test.zip";
             ZipFile.ExtractToDirectory(zipPath, extractPath);
 
-            ReturnMainScreen();
+            ReturnMenuScreen();
         }
 
-        public static void ReturnMainScreen()
+        public static void ReturnMenuScreen()
         {
+            System.Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
-            MenuScreen.MainScreen();
+            MenuScreen.LoadMenu();
         }
     }
 }

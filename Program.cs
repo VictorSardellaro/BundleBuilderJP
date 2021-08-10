@@ -8,7 +8,7 @@ namespace BundleBuilderJP
         static void Main(string[] args)
         {
 
-            MenuScreen.MainScreen();
+            MenuScreen.LoadMenu();
             Console.ReadKey();
         }
 
