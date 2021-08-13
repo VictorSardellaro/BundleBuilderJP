@@ -52,7 +52,6 @@ namespace BundleBuilderJP.Services.ActionsNP6
 
         public static void Backup()
         {
-            Serialization();
 
             string startPath = @"D:\TEMP\A\Teste";
             string zipPath = @"D:\TEMP\B\BundleBackup_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
@@ -78,25 +77,6 @@ namespace BundleBuilderJP.Services.ActionsNP6
             Console.ReadKey();
             MenuScreen.LoadMenu();
         }
-
-
-        public static void Serialization()
-        {
-            var json = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"\Repositories\Config.json");
-
-            // @"D:\Repository\BundleBuilderJP\Repositories\Config.json"
-            // AppDomain.CurrentDomain.BaseDirectory + 
-
-            var configJson = JsonConvert.DeserializeObject<List<Configuration>>(json);
-
-            string startPathBackup = (configJson[0].startPathBackcup.ToString());
-            string StartZipPathExtract = (configJson[0].StartZipPathExtract.ToString());
-            string TargetZipPathBackup = (configJson[0].TargetZipPathBackup.ToString());
-            string TargetZipPathExtract = (configJson[0].TargetZipPathExtract.ToString());
-
-        }
-
-
     }
 }
 
