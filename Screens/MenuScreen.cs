@@ -17,6 +17,7 @@ namespace BundleBuilderJP.Screens.MenuScreens
             System.Console.WriteLine("2 - Clear NP6");
             System.Console.WriteLine("3 - Backup Bundle");
             System.Console.WriteLine("4 - Zip Bundle");
+            System.Console.WriteLine("5 - Serialization");
             System.Console.WriteLine();
             System.Console.WriteLine();
             var option = short.Parse(Console.ReadLine()!);
@@ -35,6 +36,9 @@ namespace BundleBuilderJP.Screens.MenuScreens
                     break;
                 case 4:
                     ActionsNP6.ExtractToDirectory();
+                    break;
+                case 5:
+                    ActionsNP6.Serialization();
                     break;
 
                 default: LoadMenu(); break;
