@@ -63,8 +63,8 @@ namespace BundleBuilderJP.Services.ActionsNP6
 
         public static void ExtractToDirectory()
         {
-            string extractPath = @"D:\TEMP\C";
             string zipPath = @"D:\TEMP\B\test.zip";
+            string extractPath = @"D:\TEMP\C";
             ZipFile.ExtractToDirectory(zipPath, extractPath);
 
             ReturnMenuScreen();
