@@ -39,6 +39,15 @@ namespace BundleBuilderJP.Screens.MenuScreens
 
                 default: LoadMenu(); break;
             }
+
+
+        }
+
+        public static void ReturnMenuScreen()
+        {
+            System.Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+            MenuScreen.LoadMenu();
         }
 
     }

@@ -1,11 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.IO.Compression;
 using BundleBuilderJP.Screens.MenuScreens;
-using BundleBuilderJP.Serialization;
-using Newtonsoft.Json;
+
 
 namespace BundleBuilderJP.Services.ActionsNP6
 {
@@ -27,7 +24,7 @@ namespace BundleBuilderJP.Services.ActionsNP6
             process.WaitForExit();
             System.Console.WriteLine(process.StandardOutput.ReadToEnd());
 
-            ReturnMenuScreen();
+            MenuScreen.ReturnMenuScreen();
 
         }
 
@@ -46,7 +43,7 @@ namespace BundleBuilderJP.Services.ActionsNP6
             process.WaitForExit();
             System.Console.WriteLine(process.StandardOutput.ReadToEnd());
 
-            ReturnMenuScreen();
+            MenuScreen.ReturnMenuScreen();
 
         }
 
@@ -59,7 +56,7 @@ namespace BundleBuilderJP.Services.ActionsNP6
 
             System.Console.WriteLine("Backup performed successfully");
 
-            ReturnMenuScreen();
+            MenuScreen.ReturnMenuScreen();
         }
 
         public static void ExtractToDirectory()
@@ -68,15 +65,9 @@ namespace BundleBuilderJP.Services.ActionsNP6
             string extractPath = @"D:\TEMP\C";
             ZipFile.ExtractToDirectory(zipPath, extractPath);
 
-            ReturnMenuScreen();
+            MenuScreen.ReturnMenuScreen();
         }
 
-        public static void ReturnMenuScreen()
-        {
-            System.Console.WriteLine("Press any key to continue...");
-            Console.ReadKey();
-            MenuScreen.LoadMenu();
-        }
     }
 }
 
