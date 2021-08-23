@@ -11,6 +11,8 @@ namespace BundleBuilderJP.Services.ActionsNP6
 
         public static void BatExecute(int option)
         {
+            var paths = Configuration.Serialization();
+
             Process process = new Process();
             process.StartInfo.FileName = "cmd.exe";
             process.StartInfo.CreateNoWindow = true;
@@ -18,12 +20,13 @@ namespace BundleBuilderJP.Services.ActionsNP6
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.UseShellExecute = false;
             process.Start();
-            if(option == 1) {
-                process.StandardInput.WriteLine(@"C:\NewPOS61\2.Stop.cmd");
+            if (option == 1)
+            {
+                process.StandardInput.WriteLine(paths.Configuration.StopBatPath);
             }
             if (option == 2)
             {
-                process.StandardInput.WriteLine(@"C:\NewPOS61\3.ClearAll.bat");
+                process.StandardInput.WriteLine(paths.Configuration.ClearAllBatPath);
             }
             process.StandardInput.Flush();
             process.StandardInput.Close();
@@ -32,16 +35,19 @@ namespace BundleBuilderJP.Services.ActionsNP6
 
             MenuScreen.ReturnMenuScreen();
 
-        }        
+        }
 
         public static void Backup()
         {
 
             var paths = Configuration.Serialization();
-            string startPath = paths.Configuration.StartPathBackup;            
-            string zipPath = paths.Configuration.TargetZipPathBackup + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
 
-            ZipFile.CreateFromDirectory(startPath, zipPath);
+            ZipFile.CreateFromDirectory(
+                paths.Configuration.StartPathBackup,
+                paths.Configuration.TargetZipPathBackup
+                + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") 
+                + ".zip"
+                );
 
             System.Console.WriteLine("Backup performed successfully");
 
@@ -52,10 +58,11 @@ namespace BundleBuilderJP.Services.ActionsNP6
         {
 
             var paths = Configuration.Serialization();
-            string zipPath = paths.Configuration.StartZipPathExtract;
-            string extractPath = paths.Configuration.TargetZipPathExtract;
-            
-            ZipFile.ExtractToDirectory(zipPath, extractPath);
+
+            ZipFile.ExtractToDirectory(
+                paths.Configuration.StartZipPathExtract,
+                paths.Configuration.TargetZipPathExtract
+                );
 
             MenuScreen.ReturnMenuScreen();
         }
