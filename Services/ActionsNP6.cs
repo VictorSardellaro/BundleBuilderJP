@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.IO.Compression;
 using BundleBuilderJP.Screens.MenuScreens;
-
+using BundleBuilderJP.Serialization;
 
 namespace BundleBuilderJP.Services.ActionsNP6
 {
@@ -49,9 +49,12 @@ namespace BundleBuilderJP.Services.ActionsNP6
 
         public static void Backup()
         {
+            string startPath = Configuration.Serialization()[0];
+            //string startPath = @"D:\TEMP\A\Teste";
 
-            string startPath = @"D:\TEMP\A\Teste";
-            string zipPath = @"D:\TEMP\B\BundleBackup_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
+            string zipPath = Configuration.Serialization()[1] + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
+            //string zipPath = @"D:\TEMP\B\BundleBackup_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
+
             ZipFile.CreateFromDirectory(startPath, zipPath);
 
             System.Console.WriteLine("Backup performed successfully");
