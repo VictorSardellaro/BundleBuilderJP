@@ -49,10 +49,10 @@ namespace BundleBuilderJP.Services.ActionsNP6
 
         public static void Backup()
         {
-            string startPath = Configuration.Serialization()[0];
+            string startPath = Configuration.Paths()[0];
             //string startPath = @"D:\TEMP\A\Teste";
 
-            string zipPath = Configuration.Serialization()[1] + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
+            string zipPath = Configuration.Paths()[1] + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
             //string zipPath = @"D:\TEMP\B\BundleBackup_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
 
             ZipFile.CreateFromDirectory(startPath, zipPath);

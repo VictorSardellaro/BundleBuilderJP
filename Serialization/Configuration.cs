@@ -12,11 +12,19 @@ namespace BundleBuilderJP.Serialization
         public string StartZipPathExtract { get; set; }
         public string TargetZipPathExtract { get; set; }
 
-        public static List<string> Serialization()
+        public static List<BundleBuilderJP.Serialization.Configuration> Serialization()
         {
-            var json = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"\Repositories\Config.json");
-
+            var json = File.ReadAllText(@"D:\Repository\BundleBuilderJP\Repositories\Config.json");
             var configJson = JsonConvert.DeserializeObject<List<Configuration>>(json);
+
+            return configJson;
+
+        }
+
+        public static List<string> Paths()
+        {
+
+            var configJson = Serialization();
 
             string startPathBackup = (configJson[0].startPathBackcup.ToString());
             string StartZipPathExtract = (configJson[0].StartZipPathExtract.ToString());
