@@ -11,6 +11,9 @@ namespace BundleBuilderJP.Serialization
         public string TargetZipPathBackup { get; set; }
         public string StartZipPathExtract { get; set; }
         public string TargetZipPathExtract { get; set; }
+        public string StopBatPath { get; set; }
+        public string ClearAllBatPath { get; set; }
+
 
         public static ConfigurationJson Serialization()
         {

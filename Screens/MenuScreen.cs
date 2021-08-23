@@ -9,7 +9,7 @@ namespace BundleBuilderJP.Screens.MenuScreens
 
         public static void LoadMenu()
         {
-            //System.Console.Clear();
+            System.Console.Clear();
             System.Console.WriteLine("Bundle Builder Tools");
             System.Console.WriteLine("------------------");
             System.Console.WriteLine("Chose an option");
