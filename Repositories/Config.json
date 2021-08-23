@@ -1,8 +1,9 @@
 {
-   "Configuration": {
-      "StartPathBackcup": "D:\\TEMP\\A\\Teste",
+  "Configuration": 
+    {
+      "StartPathBackup": "D:\\TEMP\\A\\Teste",
       "TargetZipPathBackup": "D:\\TEMP\\B\\BundleBackup_",
       "StartZipPathExtract": "D:\\TEMP\\B\test.zip",
       "TargetZipPathExtract": "D:\\TEMP\\C"
-   }
+    }  
 }
