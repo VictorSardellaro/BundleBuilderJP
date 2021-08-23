@@ -49,11 +49,10 @@ namespace BundleBuilderJP.Services.ActionsNP6
 
         public static void Backup()
         {
-            string startPath = Configuration.Paths()[0];
-            //string startPath = @"D:\TEMP\A\Teste";
 
-            string zipPath = Configuration.Paths()[1] + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
-            //string zipPath = @"D:\TEMP\B\BundleBackup_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
+            var paths = Configuration.Serialization();
+            string startPath = paths.Configuration.StartPathBackup;            
+            string zipPath = paths.Configuration.TargetZipPathBackup + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".zip";
 
             ZipFile.CreateFromDirectory(startPath, zipPath);
 
@@ -64,8 +63,11 @@ namespace BundleBuilderJP.Services.ActionsNP6
 
         public static void ExtractToDirectory()
         {
-            string zipPath = @"D:\TEMP\B\test.zip";
-            string extractPath = @"D:\TEMP\C";
+
+            var paths = Configuration.Serialization();
+            string zipPath = paths.Configuration.StartZipPathExtract;
+            string extractPath = paths.Configuration.TargetZipPathExtract;
+            
             ZipFile.ExtractToDirectory(zipPath, extractPath);
 
             MenuScreen.ReturnMenuScreen();
