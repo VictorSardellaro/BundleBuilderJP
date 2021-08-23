@@ -1,9 +1,10 @@
 {
-  "Configuration": 
-    {
-      "StartPathBackup": "D:\\TEMP\\A\\Teste",
-      "TargetZipPathBackup": "D:\\TEMP\\B\\BundleBackup_",
-      "StartZipPathExtract": "D:\\TEMP\\B\test.zip",
-      "TargetZipPathExtract": "D:\\TEMP\\C"
-    }  
+  "Configuration": {
+    "StartPathBackup": "D:\\TEMP\\A\\Teste",
+    "TargetZipPathBackup": "D:\\TEMP\\B\\BundleBackup_",
+    "StartZipPathExtract": "D:\\TEMP\\B\test.zip",
+    "TargetZipPathExtract": "D:\\TEMP\\C",
+    "StopBatPath": "C:\\NewPOS61\\2.Stop.cmd",
+    "ClearAllBatPath": "C:\\NewPOS61\\3.ClearAll.bat"
+  }  
 }
