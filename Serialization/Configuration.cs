@@ -14,20 +14,19 @@ namespace BundleBuilderJP.Serialization
         public string StopBatPath { get; set; }
         public string ClearAllBatPath { get; set; }
 
+        public class ConfigurationJson
+        {
+            public Configuration Configuration { get; set; }
+
+        }
 
         public static ConfigurationJson Serialization()
         {
             var json = File.ReadAllText(@"D:\Repository\BundleBuilderJP\Repositories\Config.json");
             var configJson = JsonConvert.DeserializeObject<ConfigurationJson>(json);
-            
+
 
             return configJson;
-
-        }
-
-        public class ConfigurationJson
-        {
-            public Configuration Configuration { get; set; }
 
         }
     }
