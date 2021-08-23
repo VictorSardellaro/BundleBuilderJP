@@ -1,4 +1,5 @@
 using System;
+using BundleBuilderJP.Serialization;
 using BundleBuilderJP.Services.ActionsNP6;
 
 namespace BundleBuilderJP.Screens.MenuScreens
@@ -8,7 +9,7 @@ namespace BundleBuilderJP.Screens.MenuScreens
 
         public static void LoadMenu()
         {
-            System.Console.Clear();
+            //System.Console.Clear();
             System.Console.WriteLine("Bundle Builder Tools");
             System.Console.WriteLine("------------------");
             System.Console.WriteLine("Chose an option");
@@ -35,6 +36,9 @@ namespace BundleBuilderJP.Screens.MenuScreens
                     break;
                 case 4:
                     ActionsNP6.ExtractToDirectory();
+                    break;
+                case 5:
+                    Configuration.Serialization();
                     break;
 
                 default: LoadMenu(); break;
