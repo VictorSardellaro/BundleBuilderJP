@@ -9,7 +9,7 @@ namespace BundleBuilderJP.Services.ActionsNP6
     public class ActionsNP6
     {
 
-        public static void Stop()
+        public static void BatExecute(int option)
         {
             Process process = new Process();
             process.StartInfo.FileName = "cmd.exe";
@@ -18,7 +18,13 @@ namespace BundleBuilderJP.Services.ActionsNP6
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.UseShellExecute = false;
             process.Start();
-            process.StandardInput.WriteLine(@"C:\NewPOS61\2.Stop.cmd");
+            if(option == 1) {
+                process.StandardInput.WriteLine(@"C:\NewPOS61\2.Stop.cmd");
+            }
+            if (option == 2)
+            {
+                process.StandardInput.WriteLine(@"C:\NewPOS61\3.ClearAll.bat");
+            }
             process.StandardInput.Flush();
             process.StandardInput.Close();
             process.WaitForExit();
@@ -26,26 +32,7 @@ namespace BundleBuilderJP.Services.ActionsNP6
 
             MenuScreen.ReturnMenuScreen();
 
-        }
-
-        public static void Clear()
-        {
-            Process process = new Process();
-            process.StartInfo.FileName = "cmd.exe";
-            process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.RedirectStandardInput = true;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.UseShellExecute = false;
-            process.Start();
-            process.StandardInput.WriteLine(@"C:\NewPOS61\3.ClearAll.bat");
-            process.StandardInput.Flush();
-            process.StandardInput.Close();
-            process.WaitForExit();
-            System.Console.WriteLine(process.StandardOutput.ReadToEnd());
-
-            MenuScreen.ReturnMenuScreen();
-
-        }
+        }        
 
         public static void Backup()
         {

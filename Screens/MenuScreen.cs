@@ -26,10 +26,10 @@ namespace BundleBuilderJP.Screens.MenuScreens
             switch (option)
             {
                 case 1:
-                    ActionsNP6.Clear();
+                    ActionsNP6.BatExecute(1);
                     break;
                 case 2:
-                    ActionsNP6.Stop();
+                    ActionsNP6.BatExecute(2);
                     break;
                 case 3:
                     ActionsNP6.Backup();
