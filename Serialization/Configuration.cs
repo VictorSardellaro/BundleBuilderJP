@@ -12,12 +12,9 @@ namespace BundleBuilderJP.Serialization
         public string StartZipPathExtract { get; set; }
         public string TargetZipPathExtract { get; set; }
 
-        public static void Serialization()
+        public static List<string> Serialization()
         {
             var json = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"\Repositories\Config.json");
-
-            // @"D:\Repository\BundleBuilderJP\Repositories\Config.json"
-            // AppDomain.CurrentDomain.BaseDirectory + 
 
             var configJson = JsonConvert.DeserializeObject<List<Configuration>>(json);
 
@@ -25,6 +22,14 @@ namespace BundleBuilderJP.Serialization
             string StartZipPathExtract = (configJson[0].StartZipPathExtract.ToString());
             string TargetZipPathBackup = (configJson[0].TargetZipPathBackup.ToString());
             string TargetZipPathExtract = (configJson[0].TargetZipPathExtract.ToString());
+
+            List<string> ConfigPaths = new List<string>();
+            ConfigPaths.Add(startPathBackup);
+            ConfigPaths.Add(StartZipPathExtract);
+            ConfigPaths.Add(TargetZipPathBackup);
+            ConfigPaths.Add(TargetZipPathExtract);
+
+            return ConfigPaths;
 
         }
     }
