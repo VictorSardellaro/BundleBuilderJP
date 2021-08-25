@@ -32,7 +32,7 @@ namespace BundleBuilderJP.Screens.MenuScreens
                     ActionsNP6.BatExecute(2);
                     break;
                 case 3:
-                    ActionsNP6.Backup();
+                    ActionsNP6.BackupToDirectory();
                     break;
                 case 4:
                     ActionsNP6.ExtractToDirectory();
