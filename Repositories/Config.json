@@ -4,7 +4,7 @@
     "TargetZipPathBackup": "D:\\TEMP\\B\\BundleBackup_",
     "StartZipPathExtract": "D:\\TEMP\\B\\BundleBackup_2021-08-23_13-39-57.zip",
     "TargetZipPathExtract": "D:\\TEMP\\D",
-    "StartMergePath": "D:\\TEMP\\B\\BundleBackup_2021-08-23_13-39-57.zip",
+    "StartMergePath": "D:\\TEMP\\A\\Teste",
     "TargetMergePath": "D:\\TEMP\\D",
     "StopBatPath": "C:\\NewPOS61\\2.Stop.cmd",
     "ClearAllBatPath": "C:\\NewPOS61\\3.ClearAll.bat"
