@@ -67,7 +67,7 @@ namespace BundleBuilderJP.Services.ActionsNP6
             MenuScreen.ReturnMenuScreen();
         }
 
-        private static void MergeDirectory()
+        public static void MergeDirectory()
         {
 
             var paths = Configuration.Serialization();
@@ -75,7 +75,7 @@ namespace BundleBuilderJP.Services.ActionsNP6
             try
             {
                 string combination = Path.Combine(paths.Configuration.StartMergePath, paths.Configuration.TargetMergePath);
-
+                System.Console.WriteLine("Merge performed successfully");
                 //Console.WriteLine("When you combine '{0}' and '{1}', the result is: {2}'{3}'", p1, p2, Environment.NewLine, combination);
             }
             catch (Exception e)
@@ -88,6 +88,7 @@ namespace BundleBuilderJP.Services.ActionsNP6
             }
 
             Console.WriteLine();
+            MenuScreen.ReturnMenuScreen();
         }
 
     }
