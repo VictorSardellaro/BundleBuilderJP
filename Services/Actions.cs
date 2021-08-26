@@ -135,6 +135,36 @@ namespace BundleBuilderJP.Services.Actions
             MenuScreen.ReturnMenuScreen();
         }
 
+        public static void DeleteItem()
+        {
+
+            var paths = Configuration.Serialization();
+
+            try
+            {
+                // string[] files = Directory.GetFiles(paths.Configuration.StartMergePath);
+                // string destinationFolder = paths.Configuration.TargetMergePath;
+
+                // foreach (string file in files)
+                // {
+                //     File.Copy(file, $"{destinationFolder}{Path.GetFileName(file)}", true);
+                // }
+
+                File.Delete(paths.Configuration.DeleteItem);
+                Console.WriteLine("Merge Completed");
+
+            }
+            catch (Exception e)
+            {
+                if (paths.Configuration.DeleteItem == null)
+                    paths.Configuration.DeleteItem = "null";
+
+                Console.WriteLine("You cannot delete '{0}' because: {2}{3}", paths.Configuration.DeleteItem, Environment.NewLine, e.Message);
+            }
+
+            MenuScreen.ReturnMenuScreen();
+        }
+
     }
 }
 

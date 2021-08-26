@@ -19,6 +19,7 @@ namespace BundleBuilderJP.Screens.MenuScreens
             System.Console.WriteLine("3 - Backup Bundle");
             System.Console.WriteLine("4 - Zip Bundle");
             System.Console.WriteLine("5 - Merge Bundle");
+            System.Console.WriteLine("6 - Exclude Item");
             System.Console.WriteLine();
             System.Console.WriteLine();
             var option = short.Parse(Console.ReadLine()!);
@@ -40,6 +41,9 @@ namespace BundleBuilderJP.Screens.MenuScreens
                     break;
                 case 5:
                     Actions.MergeDirectory();
+                    break;
+                case 6:
+                    Actions.DeleteItem();
                     break;
 
                 default: LoadMenu(); break;
