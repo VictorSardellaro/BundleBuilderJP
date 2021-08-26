@@ -1,13 +1,13 @@
 {
   "Configuration": {
-    "StartPathBackup": "D:\\TEMP\\A\\Teste",
-    "TargetZipPathBackup": "D:\\TEMP\\B\\BundleBackup_",
-    "StartZipPathExtract": "D:\\TEMP\\B\\BundleBackup_2021-08-23_13-39-57.zip",
-    "TargetZipPathExtract": "D:\\TEMP\\D",
-    "StartMergePath": "D:\\TEMP\\A\\Teste",
-    "TargetMergePath": "D:\\TEMP\\D\\",
-    "DeleteItem": "D:\\TEMP\\D\\img.jpg",
-    "StopBatPath": "C:\\NewPOS61\\2.Stop.cmd",
-    "ClearAllBatPath": "C:\\NewPOS61\\3.ClearAll.bat"
+    "StartPathBackup": "E:\\TEMP\\ActualBundle\\NewPOS61",
+    "TargetZipPathBackup": "E:\\TEMP\\BackupFolder\\BundleBackup_",
+    "StartZipPathExtract": "E:\\TEMP\\NewBundle\\",
+    "TargetZipPathExtract": "E:\\TEMP\\NewBundle\\New\\",
+    "StartMergePath": "E:\\TEMP\\NewBundle\\New\\",
+    "TargetMergePath": "E:\\TEMP\\ActualBundle\\NewPOS61",
+    "DeleteItem": "E:\\TEMP\\ActualBundle\\NewPOS61\\npwebview\\bin.9.1.0.3096\\npwebview.ps1",
+    "StopBatPath": "E:\\TEMP\\ActualBundle\\NewPOS61\\2.Stop.cmd",
+    "ClearAllBatPath": "E:\\TEMP\\ActualBundle\\NewPOS61\\3.ClearAll.bat"
   }
 }
