@@ -6,7 +6,7 @@
     "TargetZipPathExtract": "D:\\TEMP\\D",
     "StartMergePath": "D:\\TEMP\\A\\Teste",
     "TargetMergePath": "D:\\TEMP\\D\\",
-    "DeleteItem": "D:\\TEMP\\D\\img.png",
+    "DeleteItem": "D:\\TEMP\\D\\img.jpg",
     "StopBatPath": "C:\\NewPOS61\\2.Stop.cmd",
     "ClearAllBatPath": "C:\\NewPOS61\\3.ClearAll.bat"
   }

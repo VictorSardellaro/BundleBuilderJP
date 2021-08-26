@@ -151,7 +151,7 @@ namespace BundleBuilderJP.Services.Actions
                 // }
 
                 File.Delete(paths.Configuration.DeleteItem);
-                Console.WriteLine("Merge Completed");
+                Console.WriteLine("deletion completed");
 
             }
             catch (Exception e)
