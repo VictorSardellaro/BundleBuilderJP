@@ -112,9 +112,16 @@ namespace BundleBuilderJP.Services.ActionsNP6
 
             try
             {
-                string combination = Path.Combine(paths.Configuration.StartMergePath, paths.Configuration.TargetMergePath);
-                System.Console.WriteLine("Merge performed successfully");
-                //Console.WriteLine("When you combine '{0}' and '{1}', the result is: {2}'{3}'", p1, p2, Environment.NewLine, combination);
+                string[] files = Directory.GetFiles(paths.Configuration.StartMergePath);
+                string destinationFolder = paths.Configuration.TargetMergePath;
+
+                foreach (string file in files)
+                {
+                    File.Copy(file, $"{destinationFolder}{Path.GetFileName(file)}", true);
+                }
+
+                Console.WriteLine("Merge Completed");
+
             }
             catch (Exception e)
             {
@@ -125,7 +132,6 @@ namespace BundleBuilderJP.Services.ActionsNP6
                 Console.WriteLine("You cannot combine '{0}' and '{1}' because: {2}{3}", paths.Configuration.StartMergePath, paths.Configuration.TargetMergePath, Environment.NewLine, e.Message);
             }
 
-            Console.WriteLine();
             MenuScreen.ReturnMenuScreen();
         }
 
