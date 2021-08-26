@@ -1,6 +1,6 @@
 using System;
 using BundleBuilderJP.Serialization;
-using BundleBuilderJP.Services.ActionsNP6;
+using BundleBuilderJP.Services.Actions;
 
 namespace BundleBuilderJP.Screens.MenuScreens
 {
@@ -27,19 +27,19 @@ namespace BundleBuilderJP.Screens.MenuScreens
             switch (option)
             {
                 case 1:
-                    ActionsNP6.BatExecute(1);
+                    Actions.BatExecute(1);
                     break;
                 case 2:
-                    ActionsNP6.BatExecute(2);
+                    Actions.BatExecute(2);
                     break;
                 case 3:
-                    ActionsNP6.BackupToDirectory();
+                    Actions.BackupToDirectory();
                     break;
                 case 4:
-                    ActionsNP6.ExtractToDirectory();
+                    Actions.ExtractToDirectory();
                     break;
                 case 5:
-                    ActionsNP6.MergeDirectory();
+                    Actions.MergeDirectory();
                     break;
 
                 default: LoadMenu(); break;

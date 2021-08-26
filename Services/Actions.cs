@@ -5,9 +5,9 @@ using System.IO.Compression;
 using BundleBuilderJP.Screens.MenuScreens;
 using BundleBuilderJP.Serialization;
 
-namespace BundleBuilderJP.Services.ActionsNP6
+namespace BundleBuilderJP.Services.Actions
 {
-    public class ActionsNP6
+    public class Actions
     {
 
         public static void BatExecute(int option)
