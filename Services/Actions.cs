@@ -49,7 +49,6 @@ namespace BundleBuilderJP.Services.Actions
 
             MenuScreen.ReturnMenuScreen();
         }
-
         public static void BackupToDirectory()
         {
             var paths = Configuration.Serialization();
@@ -75,11 +74,8 @@ namespace BundleBuilderJP.Services.Actions
                 Console.WriteLine("You cannot extract from '{0}' to '{1}' because: {2}{3}", paths.Configuration.StartPathBackup, paths.Configuration.TargetZipPathBackup, Environment.NewLine, e.Message);
 
             }
-
             MenuScreen.ReturnMenuScreen();
         }
-
-
         public static void ExtractToDirectory()
         {
 
@@ -104,7 +100,6 @@ namespace BundleBuilderJP.Services.Actions
 
             MenuScreen.ReturnMenuScreen();
         }
-
         public static void MergeDirectory()
         {
 
@@ -134,7 +129,6 @@ namespace BundleBuilderJP.Services.Actions
 
             MenuScreen.ReturnMenuScreen();
         }
-
         public static void DeleteItem()
         {
 
@@ -142,13 +136,6 @@ namespace BundleBuilderJP.Services.Actions
 
             try
             {
-                // string[] files = Directory.GetFiles(paths.Configuration.StartMergePath);
-                // string destinationFolder = paths.Configuration.TargetMergePath;
-
-                // foreach (string file in files)
-                // {
-                //     File.Copy(file, $"{destinationFolder}{Path.GetFileName(file)}", true);
-                // }
 
                 File.Delete(paths.Configuration.DeleteItem);
                 Console.WriteLine("deletion completed");
