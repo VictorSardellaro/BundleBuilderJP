@@ -14,55 +14,93 @@ namespace BundleBuilderJP.Services.ActionsNP6
         {
             var paths = Configuration.Serialization();
 
-            Process process = new Process();
-            process.StartInfo.FileName = "cmd.exe";
-            process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.RedirectStandardInput = true;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.UseShellExecute = false;
-            process.Start();
-            if (option == 1)
+            try
             {
-                process.StandardInput.WriteLine(paths.Configuration.StopBatPath);
+
+                Process process = new Process();
+                process.StartInfo.FileName = "cmd.exe";
+                process.StartInfo.CreateNoWindow = true;
+                process.StartInfo.RedirectStandardInput = true;
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.UseShellExecute = false;
+                process.Start();
+                if (option == 1)
+                {
+                    process.StandardInput.WriteLine(paths.Configuration.StopBatPath);
+                }
+                if (option == 2)
+                {
+                    process.StandardInput.WriteLine(paths.Configuration.ClearAllBatPath);
+                }
+                process.StandardInput.Flush();
+                process.StandardInput.Close();
+                process.WaitForExit();
+                System.Console.WriteLine(process.StandardOutput.ReadToEnd());
             }
-            if (option == 2)
+            catch (Exception e)
             {
-                process.StandardInput.WriteLine(paths.Configuration.ClearAllBatPath);
+                if (paths.Configuration.StopBatPath == null)
+                    paths.Configuration.StopBatPath = "null";
+                if (paths.Configuration.ClearAllBatPath == null)
+                    paths.Configuration.ClearAllBatPath = "null";
+                Console.WriteLine("You cannot extract from '{0}' to '{1}' because: {2}{3}", paths.Configuration.StopBatPath, paths.Configuration.ClearAllBatPath, Environment.NewLine, e.Message);
+
             }
-            process.StandardInput.Flush();
-            process.StandardInput.Close();
-            process.WaitForExit();
-            System.Console.WriteLine(process.StandardOutput.ReadToEnd());
 
             MenuScreen.ReturnMenuScreen();
         }
 
         public static void BackupToDirectory()
         {
-
             var paths = Configuration.Serialization();
 
-            ZipFile.CreateFromDirectory(
-                paths.Configuration.StartPathBackup,
-                paths.Configuration.TargetZipPathBackup
-                + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")
-                + ".zip"
-                );
+            try
+            {
 
-            System.Console.WriteLine("Backup performed successfully");
+                ZipFile.CreateFromDirectory(
+                    paths.Configuration.StartPathBackup,
+                    paths.Configuration.TargetZipPathBackup
+                    + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")
+                    + ".zip"
+                    );
+
+                System.Console.WriteLine("Backup performed successfully");
+            }
+            catch (Exception e)
+            {
+                if (paths.Configuration.StartPathBackup == null)
+                    paths.Configuration.StartPathBackup = "null";
+                if (paths.Configuration.TargetZipPathBackup == null)
+                    paths.Configuration.TargetZipPathBackup = "null";
+                Console.WriteLine("You cannot extract from '{0}' to '{1}' because: {2}{3}", paths.Configuration.StartPathBackup, paths.Configuration.TargetZipPathBackup, Environment.NewLine, e.Message);
+
+            }
 
             MenuScreen.ReturnMenuScreen();
         }
+
 
         public static void ExtractToDirectory()
         {
 
             var paths = Configuration.Serialization();
 
-            ZipFile.ExtractToDirectory(
-                paths.Configuration.StartZipPathExtract,
-                paths.Configuration.TargetZipPathExtract
-                );
+            try
+            {
+                ZipFile.ExtractToDirectory(
+                    paths.Configuration.StartZipPathExtract,
+                    paths.Configuration.TargetZipPathExtract
+                    );
+            }
+
+            catch (Exception e)
+            {
+                if (paths.Configuration.StartZipPathExtract == null)
+                    paths.Configuration.StartZipPathExtract = "null";
+                if (paths.Configuration.TargetZipPathExtract == null)
+                    paths.Configuration.TargetZipPathExtract = "null";
+                Console.WriteLine("You cannot extract from '{0}' to '{1}' because: {2}{3}", paths.Configuration.StartZipPathExtract, paths.Configuration.TargetZipPathExtract, Environment.NewLine, e.Message);
+            }
 
             MenuScreen.ReturnMenuScreen();
         }
