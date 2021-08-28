@@ -78,13 +78,16 @@ namespace BundleBuilderJP.Services.Actions
         }
         public static void ExtractToDirectory()
         {
-
             var paths = Configuration.Serialization();
 
             try
             {
+                var file = Directory.GetFiles(paths.Configuration.StartZipPathExtract, "*.zip", SearchOption.TopDirectoryOnly);
+                
+                string archiveName = file.ToString();
+
                 ZipFile.ExtractToDirectory(
-                    paths.Configuration.StartZipPathExtract,
+                    paths.Configuration.StartZipPathExtract + archiveName,
                     paths.Configuration.TargetZipPathExtract
                     );
             }
