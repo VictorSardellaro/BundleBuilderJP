@@ -1,6 +1,6 @@
 using System;
-using BundleBuilderJP.Serialization;
 using BundleBuilderJP.Services.Actions;
+using BundleBuilderJP.Services.BundleBuilder;
 
 namespace BundleBuilderJP.Screens.MenuScreens
 {
@@ -20,6 +20,8 @@ namespace BundleBuilderJP.Screens.MenuScreens
             System.Console.WriteLine("4 - Zip Bundle");
             System.Console.WriteLine("5 - Merge Bundle");
             System.Console.WriteLine("6 - Exclude Item");
+            System.Console.WriteLine("9 - Bundle Builder");
+
             System.Console.WriteLine();
             System.Console.WriteLine();
             var option = short.Parse(Console.ReadLine()!);
@@ -28,22 +30,25 @@ namespace BundleBuilderJP.Screens.MenuScreens
             switch (option)
             {
                 case 1:
-                    Actions.BatExecute(1);
+                    ActionsNP6.BatExecute(1);
                     break;
                 case 2:
-                    Actions.BatExecute(2);
+                    ActionsNP6.BatExecute(2);
                     break;
                 case 3:
-                    Actions.BackupToDirectory();
+                    ActionsNP6.BackupToDirectory();
                     break;
                 case 4:
-                    Actions.ExtractToDirectory();
+                    ActionsNP6.ExtractToDirectory();
                     break;
                 case 5:
-                    Actions.MergeDirectory();
+                    ActionsNP6.MergeDirectory();
                     break;
                 case 6:
-                    Actions.DeleteItem();
+                    ActionsNP6.DeleteItem();
+                    break;
+                case 9:
+                    Bundle.BuilderNP6();
                     break;
 
                 default: LoadMenu(); break;
