@@ -7,7 +7,7 @@ using BundleBuilderJP.Serialization;
 
 namespace BundleBuilderJP.Services.Actions
 {
-    public class Actions
+    public class ActionsNP6
     {
 
         public static void BatExecute(int option)
@@ -83,7 +83,7 @@ namespace BundleBuilderJP.Services.Actions
             try
             {
                 var file = Directory.GetFiles(paths.Configuration.StartZipPathExtract, "*.zip", SearchOption.TopDirectoryOnly);
-                
+
                 string archiveName = file.ToString();
 
                 ZipFile.ExtractToDirectory(
