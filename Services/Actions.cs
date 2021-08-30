@@ -16,7 +16,6 @@ namespace BundleBuilderJP.Services.Actions
 
             try
             {
-
                 Process process = new Process();
                 process.StartInfo.FileName = "cmd.exe";
                 process.StartInfo.CreateNoWindow = true;
@@ -49,16 +48,14 @@ namespace BundleBuilderJP.Services.Actions
 
             MenuScreen.ReturnMenuScreen();
         }
-        public static void BackupToDirectory()
+        public static void BackupToDirectory(string startPathBackup, string targetZipPathBackup)
         {
-            var paths = Configuration.Serialization();
-
             try
             {
 
                 ZipFile.CreateFromDirectory(
-                    paths.Configuration.StartPathBackup,
-                    paths.Configuration.TargetZipPathBackup
+                    startPathBackup,
+                    targetZipPathBackup
                     + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")
                     + ".zip"
                     );
@@ -67,89 +64,79 @@ namespace BundleBuilderJP.Services.Actions
             }
             catch (Exception e)
             {
-                if (paths.Configuration.StartPathBackup == null)
-                    paths.Configuration.StartPathBackup = "null";
-                if (paths.Configuration.TargetZipPathBackup == null)
-                    paths.Configuration.TargetZipPathBackup = "null";
-                Console.WriteLine("You cannot extract from '{0}' to '{1}' because: {2}{3}", paths.Configuration.StartPathBackup, paths.Configuration.TargetZipPathBackup, Environment.NewLine, e.Message);
+                if (startPathBackup == null)
+                    startPathBackup = "null";
+                if (targetZipPathBackup == null)
+                    targetZipPathBackup = "null";
+                Console.WriteLine("You cannot extract from '{0}' to '{1}' because: {2}{3}", startPathBackup, targetZipPathBackup, Environment.NewLine, e.Message);
 
             }
             MenuScreen.ReturnMenuScreen();
         }
-        public static void ExtractToDirectory()
+        public static void ExtractToDirectory(string startZipPathExtract, string targetZipPathExtract)
         {
-            var paths = Configuration.Serialization();
-
             try
             {
-                var file = Directory.GetFiles(paths.Configuration.StartZipPathExtract, "*.zip", SearchOption.TopDirectoryOnly);
+                var file = Directory.GetFiles(startZipPathExtract, "*.zip", SearchOption.TopDirectoryOnly);
 
                 string archiveName = file.ToString();
 
                 ZipFile.ExtractToDirectory(
-                    paths.Configuration.StartZipPathExtract + archiveName,
-                    paths.Configuration.TargetZipPathExtract
+                    startZipPathExtract + archiveName,
+                    targetZipPathExtract
                     );
             }
 
             catch (Exception e)
             {
-                if (paths.Configuration.StartZipPathExtract == null)
-                    paths.Configuration.StartZipPathExtract = "null";
-                if (paths.Configuration.TargetZipPathExtract == null)
-                    paths.Configuration.TargetZipPathExtract = "null";
-                Console.WriteLine("You cannot extract from '{0}' to '{1}' because: {2}{3}", paths.Configuration.StartZipPathExtract, paths.Configuration.TargetZipPathExtract, Environment.NewLine, e.Message);
+                if (startZipPathExtract == null)
+                    startZipPathExtract = "null";
+                if (targetZipPathExtract == null)
+                    targetZipPathExtract = "null";
+                Console.WriteLine("You cannot extract from '{0}' to '{1}' because: {2}{3}", startZipPathExtract, targetZipPathExtract, Environment.NewLine, e.Message);
             }
 
             MenuScreen.ReturnMenuScreen();
         }
-        public static void MergeDirectory()
+        public static void MergeDirectory(string startMergePath, string targetMergePath)
         {
-
-            var paths = Configuration.Serialization();
 
             try
             {
-                string[] files = Directory.GetFiles(paths.Configuration.StartMergePath);
-                string destinationFolder = paths.Configuration.TargetMergePath;
+                string[] files = Directory.GetFiles(startMergePath);
 
                 foreach (string file in files)
                 {
-                    File.Copy(file, $"{destinationFolder}{Path.GetFileName(file)}", true);
+                    File.Copy(file, $"{targetMergePath}{Path.GetFileName(file)}", true);
                 }
-
-                Console.WriteLine("Merge Completed");
 
             }
             catch (Exception e)
             {
-                if (paths.Configuration.StartMergePath == null)
-                    paths.Configuration.StartMergePath = "null";
-                if (paths.Configuration.TargetMergePath == null)
-                    paths.Configuration.TargetMergePath = "null";
-                Console.WriteLine("You cannot combine '{0}' and '{1}' because: {2}{3}", paths.Configuration.StartMergePath, paths.Configuration.TargetMergePath, Environment.NewLine, e.Message);
+                if (startMergePath == null)
+                    startMergePath = "null";
+                if (targetMergePath == null)
+                    targetMergePath = "null";
+                Console.WriteLine("You cannot combine '{0}' and '{1}' because: {2}{3}", startMergePath, targetMergePath, Environment.NewLine, e.Message);
             }
 
             MenuScreen.ReturnMenuScreen();
         }
-        public static void DeleteItem()
+        public static void DeleteItem(string deleteItemPath)
         {
-
-            var paths = Configuration.Serialization();
-
             try
             {
 
-                File.Delete(paths.Configuration.DeleteItem);
+                File.Delete(deleteItemPath);
                 Console.WriteLine("deletion completed");
 
             }
             catch (Exception e)
             {
-                if (paths.Configuration.DeleteItem == null)
-                    paths.Configuration.DeleteItem = "null";
+                if (deleteItemPath == null)
+                    deleteItemPath = "null";
 
-                Console.WriteLine("You cannot delete '{0}' because: {2}{3}", paths.Configuration.DeleteItem, Environment.NewLine, e.Message);
+                Console.WriteLine("You cannot delete '{0}' because: {2}{3}", deleteItemPath, Environment.NewLine, e.Message);
             }
 
             MenuScreen.ReturnMenuScreen();

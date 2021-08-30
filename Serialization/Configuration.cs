@@ -15,7 +15,7 @@ namespace BundleBuilderJP.Serialization
         public string TargetMergePath { get; set; }
         public string StopBatPath { get; set; }
         public string ClearAllBatPath { get; set; }
-        public string DeleteItem { get; set; }
+        public string DeleteItemPath { get; set; }
 
         public class ConfigurationJson
         {

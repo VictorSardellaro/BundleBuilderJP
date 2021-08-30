@@ -1,19 +1,20 @@
 using System.Threading;
+using BundleBuilderJP.Services.Actions;
 
-namespace BundleBuilderJP.Services.Actions
+namespace BundleBuilderJP.Services.BundleBuilder
 {
     public class Bundle
     {
-        public static void Builder()
+        public static void BuilderNP6()
         {
-            Actions.BatExecute(1);
-            Thread.Sleep(3000);
-            Actions.BatExecute(2);
-            Thread.Sleep(3000);
-            Actions.BackupToDirectory();
-            Actions.ExtractToDirectory();
-            Actions.MergeDirectory();
-            Actions.DeleteItem();
+            //ActionsNP6.BatExecute(1);
+            // Thread.Sleep(3000);
+            // ActionsNP6.BatExecute(2);
+            // Thread.Sleep(3000);
+            //ActionsNP6.ExtractToDirectory();
+            //ActionsNP6.ExtractToDirectory();
+            //ActionsNP6.MergeDirectory();
+            //ActionsNP6.DeleteItem();
 
         }
 

@@ -1,4 +1,5 @@
 using System;
+using BundleBuilderJP.Serialization;
 using BundleBuilderJP.Services.Actions;
 using BundleBuilderJP.Services.BundleBuilder;
 
@@ -27,6 +28,16 @@ namespace BundleBuilderJP.Screens.MenuScreens
             var option = short.Parse(Console.ReadLine()!);
             System.Console.Clear();
 
+            var paths = Configuration.Serialization();
+
+            string startPathBackup = paths.Configuration.StartPathBackup;
+            string targetZipPathBackup = paths.Configuration.TargetZipPathBackup;
+            string startZipPathExtract = paths.Configuration.StartZipPathExtract;
+            string targetZipPathExtract = paths.Configuration.TargetZipPathExtract;
+            string startMergePath = paths.Configuration.StartMergePath;
+            string targetMergePath = paths.Configuration.TargetMergePath;
+            string deleteItemPath = paths.Configuration.DeleteItemPath;
+
             switch (option)
             {
                 case 1:
@@ -36,16 +47,16 @@ namespace BundleBuilderJP.Screens.MenuScreens
                     ActionsNP6.BatExecute(2);
                     break;
                 case 3:
-                    ActionsNP6.BackupToDirectory();
+                    ActionsNP6.BackupToDirectory(startPathBackup, targetZipPathBackup);
                     break;
                 case 4:
-                    ActionsNP6.ExtractToDirectory();
+                    ActionsNP6.ExtractToDirectory(startZipPathExtract, targetZipPathExtract);
                     break;
                 case 5:
-                    ActionsNP6.MergeDirectory();
+                    ActionsNP6.MergeDirectory(startMergePath, targetMergePath);
                     break;
                 case 6:
-                    ActionsNP6.DeleteItem();
+                    ActionsNP6.DeleteItem(deleteItemPath);
                     break;
                 case 9:
                     Bundle.BuilderNP6();

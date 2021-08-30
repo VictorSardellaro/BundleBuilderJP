@@ -6,7 +6,7 @@
     "TargetZipPathExtract": "E:\\TEMP\\NewBundle\\New\\",
     "StartMergePath": "E:\\TEMP\\NewBundle\\New\\",
     "TargetMergePath": "E:\\TEMP\\ActualBundle\\NewPOS61",
-    "DeleteItem": "E:\\TEMP\\ActualBundle\\NewPOS61\\npwebview\\bin.9.1.0.3096\\npwebview.ps1",
+    "DeleteItemPath": "E:\\TEMP\\ActualBundle\\NewPOS61\\npwebview\\bin.9.1.0.3096\\npwebview.ps1",
     "StopBatPath": "E:\\TEMP\\ActualBundle\\NewPOS61\\2.Stop.cmd",
     "ClearAllBatPath": "E:\\TEMP\\ActualBundle\\NewPOS61\\3.ClearAll.bat"
   }
