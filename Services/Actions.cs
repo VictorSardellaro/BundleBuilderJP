@@ -73,6 +73,8 @@ namespace BundleBuilderJP.Services.Actions
             }
             MenuScreen.ReturnMenuScreen();
         }
+
+
         public static void ExtractToDirectory(string startZipPathExtract, string targetZipPathExtract)
         {
             try
@@ -100,7 +102,6 @@ namespace BundleBuilderJP.Services.Actions
         }
         public static void MergeDirectory(string startMergePath, string targetMergePath)
         {
-
             try
             {
                 string[] files = Directory.GetFiles(startMergePath);
